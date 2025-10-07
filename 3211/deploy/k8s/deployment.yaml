@@ -58,31 +58,22 @@ spec:
                   fieldPath: status.podIP
           startupProbe:
             httpGet:
-              path: "/startup"            # Actuator 쓰면 /actuator/health 권장
+              path: "/startup"            
               port: 8080
-              scheme: HTTP
             initialDelaySeconds: 30
             periodSeconds: 10
-            timeoutSeconds: 3
-            successThreshold: 1
             failureThreshold: 60
           readinessProbe:
             httpGet:
-              path: "/readiness"          # Actuator: /actuator/health/readiness
+              path: "/readiness"         
               port: 8080
-              scheme: HTTP
             periodSeconds: 10
-            timeoutSeconds: 3
-            successThreshold: 1
             failureThreshold: 3
           livenessProbe:
             httpGet:
-              path: "/liveness"           # Actuator: /actuator/health/liveness
+              path: "/liveness"          
               port: 8080
-              scheme: HTTP
             periodSeconds: 10
-            timeoutSeconds: 3
-            successThreshold: 1
             failureThreshold: 3
           resources:
             requests:
