@@ -61,18 +61,21 @@ spec:
             httpGet:
               path: "/startup"
               port: 8080
-            periodSeconds: 5
-            failureThreshold: 24
+            initialDelaySeconds: 30
+            periodSeconds: 10
+            failureThreshold: 60
           readinessProbe:
             httpGet:
               path: "/readiness"
               port: 8080
+            timeoutSeconds: 5
             periodSeconds: 10
             failureThreshold: 3
           livenessProbe:
             httpGet:
               path: "/liveness"
               port: 8080
+            timeoutSeconds: 5
             periodSeconds: 10
             failureThreshold: 3
           resources:
