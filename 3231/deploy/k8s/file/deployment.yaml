@@ -31,7 +31,7 @@ spec:
     spec:
       containers:
         - name: application-3231
-          image: 1pro/api-tester:3.0.0
+          image: jimineutron/api-tester:3.0.0
           imagePullPolicy: Always
           ports:
             - containerPort: 8080
@@ -43,6 +43,7 @@ spec:
             httpGet:
               path: "/startup"
               port: 8080
+            timeoutSeconds: 5
             initialDelaySeconds: 30
             periodSeconds: 10
             failureThreshold: 60
